@@ -1,0 +1,106 @@
+PDF OCR Enhancement Tool
+<div align="center"> <img src="https://img.shields.io/badge/python-3.7+-blue.svg" alt="Python 3.7+"/> <img src="https://img.shields.io/badge/streamlit-1.0+-green.svg" alt="Streamlit 1.0+"/> <img src="https://img.shields.io/badge/license-MIT-orange.svg" alt="MIT License"/> </div>
+📑 Overview
+PDF OCR Enhancement Tool is a powerful application that improves the readability and searchability of scanned PDFs. The tool applies advanced image preprocessing techniques and Optical Character Recognition (OCR) to transform scanned documents into searchable, machine-readable text while maintaining the original layout.
+
+PDF OCR Enhancement Tool Screenshot
+
+✨ Features
+Image Preprocessing: Multiple levels of preprocessing to enhance image quality before OCR
+Advanced OCR: Extracts text from images using Tesseract OCR
+Multiple Languages: Support for English, French, German, Turkish, Russian
+Customizable Settings: Adjust DPI, preprocessing level, and other parameters
+Parallel Processing: Efficiently processes multiple pages concurrently
+Interactive UI: User-friendly interface with page previews and progress tracking
+Before/After Comparison: View original and processed images side by side
+Downloadable Results: Get both searchable PDF and extracted text
+🔧 Installation
+Prerequisites
+Python 3.7+
+Tesseract OCR installed
+Required language data files for Tesseract
+Step 1: Clone the repository
+bash
+git clone https://github.com/yourusername/pdf-ocr-enhancer.git
+cd pdf-ocr-enhancer
+Step 2: Create a virtual environment (optional but recommended)
+bash
+python -m venv venv
+source venv/bin/activate  # For Linux/Mac
+# OR
+venv\Scripts\activate  # For Windows
+Step 3: Install required packages
+bash
+pip install -r requirements.txt
+Step 4: Run the application
+bash
+streamlit run app.py
+📋 Requirements
+Create a requirements.txt file with these dependencies:
+
+Code
+streamlit>=1.0.0
+opencv-python>=4.5.0
+numpy>=1.19.0
+PyMuPDF>=1.18.0
+pytesseract>=0.3.8
+pdf2image>=1.14.0
+Pillow>=8.0.0
+psutil>=5.8.0
+🚀 Usage
+Launch the application by running streamlit run app.py
+Upload a PDF file using the file uploader
+Adjust settings in the sidebar:
+Select OCR language
+Set image DPI (higher for better quality, lower for faster processing)
+Choose preprocessing level
+Specify CPU cores to use
+Add Tesseract path if not in system PATH
+Select page range to process
+Click "Process PDF" button
+View and download processed PDF and extracted text
+⚙️ Settings Explained
+Setting	Description
+OCR Language	Language model for text recognition
+Image DPI	Resolution of image processing (100-600)
+Preprocessing Level	Intensity of image enhancement (light, medium, heavy)
+CPU Cores	Number of parallel processes for OCR
+Tesseract Path	Optional path to Tesseract executable
+🛠️ Performance Tips
+For faster processing: Choose lower DPI, "light" preprocessing, and process fewer pages
+For better quality: Select higher DPI and "heavy" preprocessing
+Memory usage is displayed in the sidebar to help monitor resource consumption
+Adjust CPU cores based on your computer's capabilities
+📁 Project Structure
+Code
+pdf-ocr-enhancer/
+│
+├── app.py           # Main application file with Streamlit UI
+├── enhancer.py      # PDF OCR enhancement logic
+├── ui_utils.py      # UI helper functions
+├── requirements.txt # Required packages
+└── README.md        # Project documentation
+🔍 How It Works
+PDF Upload: The application receives a PDF file through the Streamlit interface
+Page Conversion: PDF pages are converted to high-resolution images
+Image Preprocessing: Each page image is enhanced using OpenCV:
+Light: Basic grayscale conversion
+Medium: Adaptive thresholding
+Heavy: Thresholding, denoising, and dilation
+OCR Processing: Tesseract extracts text and creates searchable PDF layers
+PDF Assembly: Processed pages are combined into a final searchable PDF
+🐛 Troubleshooting
+Problem	Solution
+Tesseract not found	Ensure Tesseract is installed and provide the correct path in settings
+Memory issues with large PDFs	Process fewer pages at once, lower the DPI setting
+Low OCR quality	Increase DPI and try "heavy" preprocessing level
+Missing languages	Install additional Tesseract language data files
+Slow processing	Increase CPU cores, reduce DPI, or choose "light" preprocessing
+📄 License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+🤝 Contributing
+Contributions are welcome! Feel free to submit issues or pull requests.
+
+Developed with ❤️ for improving document accessibility and searchability. For questions or support, please create an issue in the repository.
+
